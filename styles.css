@@ -11,12 +11,14 @@
   border-radius: 15px;
   background-color: #000;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif; /* Add this line */
 }
 
 .slide .main {
-  font-weight: bold;
+  font-weight: 700; /* Bold for main text */
 }
 
 .slide .sub {
   margin-top: 10px;
+  font-weight: 400; /* Regular for subtext */
 }

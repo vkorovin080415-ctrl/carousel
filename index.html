@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Carousel Creator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Instagram Carousel Creator</h1>
+    <textarea id="textInput" placeholder="Paste your text here..."></textarea>
+    
+    <div class="options">
+      <label>Font Size:
+        <input type="number" id="fontSize" value="40">
+      </label>
+      <label>Text Color:
+        <input type="color" id="textColor" value="#ffffff">
+      </label>
+      <label>Background Color:
+        <input type="color" id="bgColor" value="#000000">
+      </label>
+    </div>
+
+    <button id="generateBtn">Generate Slides</button>
+    <div id="slidesContainer"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

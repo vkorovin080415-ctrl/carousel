@@ -1,30 +1,50 @@
-const textInput = document.getElementById('textInput');
+const mainTextInput = document.getElementById('mainText');
+const subTextInput = document.getElementById('subText');
 const generateBtn = document.getElementById('generateBtn');
 const slidesContainer = document.getElementById('slidesContainer');
-const fontSizeInput = document.getElementById('fontSize');
-const textColorInput = document.getElementById('textColor');
+
+const mainFontSizeInput = document.getElementById('mainFontSize');
+const subFontSizeInput = document.getElementById('subFontSize');
+const mainTextColorInput = document.getElementById('mainTextColor');
+const subTextColorInput = document.getElementById('subTextColor');
 const bgColorInput = document.getElementById('bgColor');
 
 generateBtn.addEventListener('click', () => {
-  slidesContainer.innerHTML = ''; // Clear previous slides
-  const text = textInput.value.trim();
-  if (!text) return;
+  slidesContainer.innerHTML = '';
 
-  const paragraphs = text.split('\n').filter(p => p.trim() !== '');
+  const mainText = mainTextInput.value.trim();
+  const subText = subTextInput.value.trim();
 
-  paragraphs.forEach((para, index) => {
+  if (!mainText && !subText) return;
+
+  const mainLines = mainText.split('\n').filter(l => l.trim() !== '');
+  const subLines = subText.split('\n').filter(l => l.trim() !== '');
+
+  const maxSlides = Math.max(mainLines.length, subLines.length);
+
+  for (let i = 0; i < maxSlides; i++) {
     const slide = document.createElement('div');
     slide.classList.add('slide');
     slide.style.backgroundColor = bgColorInput.value;
-    slide.style.color = textColorInput.value;
-    slide.style.fontSize = fontSizeInput.value + 'px';
-    slide.innerText = para;
 
+    const mainDiv = document.createElement('div');
+    mainDiv.classList.add('main');
+    mainDiv.style.fontSize = mainFontSizeInput.value + 'px';
+    mainDiv.style.color = mainTextColorInput.value;
+    mainDiv.innerText = mainLines[i] || '';
+
+    const subDiv = document.createElement('div');
+    subDiv.classList.add('sub');
+    subDiv.style.fontSize = subFontSizeInput.value + 'px';
+    subDiv.style.color = subTextColorInput.value;
+    subDiv.innerText = subLines[i] || '';
+
+    slide.appendChild(mainDiv);
+    slide.appendChild(subDiv);
     slidesContainer.appendChild(slide);
 
-    // Optional: allow downloading each slide as an image
-    slide.addEventListener('click', () => downloadSlide(slide, `slide-${index + 1}.png`));
-  });
+    slide.addEventListener('click', () => downloadSlide(slide, `slide-${i + 1}.png`));
+  }
 });
 
 // Function to download a slide as an image

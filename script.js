@@ -56,3 +56,4 @@ function downloadSlide(slide, filename) {
     link.click();
   });
 }
+

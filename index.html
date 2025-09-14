@@ -1,32 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instagram Carousel Creator</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Instagram Carousel Creator</h1>
-    <textarea id="textInput" placeholder="Paste your text here..."></textarea>
-    
-    <div class="options">
-      <label>Font Size:
-        <input type="number" id="fontSize" value="40">
-      </label>
-      <label>Text Color:
-        <input type="color" id="textColor" value="#ffffff">
-      </label>
-      <label>Background Color:
-        <input type="color" id="bgColor" value="#000000">
-      </label>
-    </div>
+<div class="container">
+  <h1>Instagram Carousel Creator</h1>
 
-    <button id="generateBtn">Generate Slides</button>
-    <div id="slidesContainer"></div>
+  <textarea id="mainText" placeholder="Paste main text (headline) here..."></textarea>
+  <textarea id="subText" placeholder="Paste subtext (description) here..."></textarea>
+
+  <div class="options">
+    <label>Font Size (Main):
+      <input type="number" id="mainFontSize" value="40">
+    </label>
+    <label>Font Size (Sub):
+      <input type="number" id="subFontSize" value="20">
+    </label>
+    <label>Main Text Color:
+      <input type="color" id="mainTextColor" value="#ffffff">
+    </label>
+    <label>Subtext Color:
+      <input type="color" id="subTextColor" value="#cccccc">
+    </label>
+    <label>Background Color:
+      <input type="color" id="bgColor" value="#000000">
+    </label>
   </div>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  <button id="generateBtn">Generate Slides</button>
+  <div id="slidesContainer"></div>
+</div>
+
